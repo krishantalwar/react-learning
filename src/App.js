@@ -1,25 +1,46 @@
 import logo from "./logo.svg";
 import "./App.css";
+import Persons from "./Persons/Persons";
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    Personss: [
+      {
+        name: "kr",
+        age: 45,
+      },
+      {
+        name: "kr",
+        age: 4,
+      },
+    ],
+  };
+  changenameHandler = () => {
+    this.setState({
+      Personss: [
+        {
+          name: "kr",
+          age: 45,
+        },
+        {
+          name: "kr",
+          age: 44,
+        },
+      ],
+    });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <button onClick={this.changenameHandler}>change age</button>
+        {this.state.Personss.map((person, index) => (
+          <Persons age={person.age} />
+        ))}
+      </div>
+    );
+  }
 }
 
 export default App;
