@@ -1,6 +1,10 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Persons from "./Persons/Persons";
+import Userinput from "./Userinput/Userinput";
+
+import Useroutput from "./Useroutput/Useroutput";
+
 import React, { Component } from "react";
 
 class App extends Component {
@@ -16,7 +20,8 @@ class App extends Component {
       },
     ],
   };
-  changenameHandler = () => {
+
+  changenameHandler = (newage) => {
     this.setState({
       Personss: [
         {
@@ -25,7 +30,23 @@ class App extends Component {
         },
         {
           name: "kr",
-          age: 44,
+          age: newage,
+        },
+      ],
+    });
+  };
+
+  namechangehandler = (event) => {
+    console.log(event);
+    this.setState({
+      Personss: [
+        {
+          name: "kr",
+          age: 45,
+        },
+        {
+          name: "kr",
+          age: event.target.value,
         },
       ],
     });
@@ -34,9 +55,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <button onClick={this.changenameHandler}>change age</button>
+        <button onClick={() => this.changenameHandler("asd")}>
+          change age
+        </button>
         {this.state.Personss.map((person, index) => (
-          <Persons age={person.age} />
+          <Persons
+            click={() => this.changenameHandler("dee")}
+            namechangehandler={this.namechangehandler}
+            age={person.age}
+          />
         ))}
       </div>
     );

@@ -1,10 +1,12 @@
 import React from "react";
+import "./Person.css";
 
 function Persons(param) {
   return (
-    <div>
+    <div onClick={param.click} className="person">
       <p>{param.age}</p>
-      <p>{param.default}</p>
+      <p>{param.children}</p>
+      <input type="text" onChange={param.namechangehandler} value="ttttttt" />
     </div>
   );
 }
