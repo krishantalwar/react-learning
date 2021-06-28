@@ -1,14 +1,17 @@
 import React from "react";
+
 import "./Person.css";
 
-function Persons(param) {
+const person = (props) => {
   return (
-    <div onClick={param.click} className="person">
-      <p>{param.age}</p>
-      <p>{param.children}</p>
-      <input type="text" onChange={param.namechangehandler} value="ttttttt" />
+    <div className="Person">
+      <p onClick={props.click}>
+        I'm {props.name} and I am {props.age} years old!
+      </p>
+      <p>{props.children}</p>
+      <input type="text" onChange={props.changed} value={props.name} />
     </div>
   );
-}
+};
 
-export default Persons;
+export default person;
