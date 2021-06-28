@@ -24,7 +24,10 @@ class App extends Component {
         <button onClick={() => this.changenameHandler("asd")}>
           change age
         </button>
-        <Userinput setusername={this.setusername} />
+        <Userinput
+          setusername={this.setusername}
+          currentvalue={this.state.user[0].name}
+        />
         <Useroutput name={this.state.user[0].name} />
       </div>
     );
