@@ -9,46 +9,12 @@ import React, { Component } from "react";
 
 class App extends Component {
   state = {
-    Personss: [
-      {
-        name: "kr",
-        age: 45,
-      },
-      {
-        name: "kr",
-        age: 4,
-      },
-    ],
+    user: [{ name: "kri" }],
   };
 
-  changenameHandler = (newage) => {
+  setusername = (event) => {
     this.setState({
-      Personss: [
-        {
-          name: "kr",
-          age: 45,
-        },
-        {
-          name: "kr",
-          age: newage,
-        },
-      ],
-    });
-  };
-
-  namechangehandler = (event) => {
-    console.log(event);
-    this.setState({
-      Personss: [
-        {
-          name: "kr",
-          age: 45,
-        },
-        {
-          name: "kr",
-          age: event.target.value,
-        },
-      ],
+      user: [{ name: event.target.value }],
     });
   };
 
@@ -58,13 +24,8 @@ class App extends Component {
         <button onClick={() => this.changenameHandler("asd")}>
           change age
         </button>
-        {this.state.Personss.map((person, index) => (
-          <Persons
-            click={() => this.changenameHandler("dee")}
-            namechangehandler={this.namechangehandler}
-            age={person.age}
-          />
-        ))}
+        <Userinput setusername={this.setusername} />
+        <Useroutput name={this.state.user[0].name} />
       </div>
     );
   }
